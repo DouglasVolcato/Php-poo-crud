@@ -1,5 +1,5 @@
 <?php
-class GetAllMoviesUseCase{
+class GetMovieByIdUseCase{
     private $repository;
 
     public function __construct($repository){

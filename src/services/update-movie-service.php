@@ -1,5 +1,5 @@
 <?php
-class CreateMovieUseCase{
+class UpdateMovieUseCase{
     private $repository;
 
     public function __construct($repository){
