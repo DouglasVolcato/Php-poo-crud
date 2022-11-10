@@ -3,52 +3,16 @@
 require_once("../connection/database.php");
 
 class MovieRepository{
-    private $id;
-    private $title;
-    private $year;
-    private $image;
     protected $db;
 
-    public function __construct($id=0, $title="", $year=0, $image=""){
-        $this->id = $id;
-        $this->title = $title;
-        $this->year = $year;
-        $this->image = $image;
+    public function __construct(){
         $this->db = new PDO(DB_TYPE.":host=".DB_HOST.";dbname=".DB_NAME, DB_USER, DB_PWD,[ PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC ]);
     }
 
-    public function setId($id){
-        $this->id = $id;
-    }
-    public function getId(){
-        return $this->id;
-    }
-
-    public function setTitle($title){
-        $this->$title = $title;
-    }
-    public function getTitle(){
-        return $this->title;
-    }
-
-    public function setYear($year){
-        $this->year = $year;
-    }
-    public function getYear(){
-        return $this->year;
-    }
-
-    public function setImage($image){
-        $this->image = $image;
-    }
-    public function getImage(){
-        return $this->image;
-    }
-
-    public function createMovie(){
+    public function createMovie(string $title, int $year, string $image){
         try{
             $query = $this->db->prepare("INSERT INTO movies(title, year, image) values(?,?,?)");
-            $query->execute([$this->title, $this->year, $this->image]);
+            $query->execute([$title, $year, $image]);
             echo "<script>alert('Movie added successfully!'); document.location='index.php'</script>";
 
         } catch(Exception $error){
@@ -67,10 +31,10 @@ class MovieRepository{
         }
     }
 
-    public function getMovieById(){
+    public function getMovieById(int $id){
         try{
             $query = $this->db->prepare("SELECT * FROM movies WHERE id=?");
-            $query->execute([$this->id]);
+            $query->execute([$id]);
             return $stm->getAllMovies();
 
         } catch(Exception $error){
@@ -78,10 +42,10 @@ class MovieRepository{
         }
     }
 
-    public function updateMovie(){
+    public function updateMovie(string $title, int $year, string $image, int $id){
         try{
             $query = $this->db->prepare("UPDATE movies SET title=?, year=?, image=? WHERE id=?");
-            $query->execute([$this->title, $this->year, $this->image, $this->id]);
+            $query->execute([$title, $year, $image, $id]);
             echo "<script>alert('Movie updated successfully!'); document.location='index.php'</script>";
 
         } catch(Exception $error){
@@ -89,10 +53,10 @@ class MovieRepository{
         }
     }
 
-    public function delete(){
+    public function deleteMovie(int $id){
         try{
             $query = $this->db->prepare("DELETE FROM movies WHERE id=?");
-            $query->execute([$this->id]);
+            $query->execute([$id]);
             echo "<script>alert('Movie deleted successfully'); document.location='index.php'</script>";
             return $query->getAllMovies(); 
 
