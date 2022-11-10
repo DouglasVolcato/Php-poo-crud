@@ -13,10 +13,10 @@ class MovieRepository{
         try{
             $query = $this->db->prepare("INSERT INTO movies(title, year, image) values(?,?,?)");
             $query->execute([$title, $year, $image]);
-            echo "<script>alert('Movie added successfully!'); document.location='index.php'</script>";
+            return true;
 
         } catch(Exception $error){
-            return $error->getMessage();
+            return false;
         }
     }
 
@@ -27,7 +27,7 @@ class MovieRepository{
             return $query->getAllMovies();
 
         } catch(Exception $error){
-            return $error->getMessage();
+            return [];
         }
     }
 
@@ -38,7 +38,7 @@ class MovieRepository{
             return $stm->getAllMovies();
 
         } catch(Exception $error){
-            return $error->getMessage();
+            return null;
         }
     }
 
@@ -46,10 +46,10 @@ class MovieRepository{
         try{
             $query = $this->db->prepare("UPDATE movies SET title=?, year=?, image=? WHERE id=?");
             $query->execute([$title, $year, $image, $id]);
-            echo "<script>alert('Movie updated successfully!'); document.location='index.php'</script>";
+            return true;
 
         } catch(Exception $error){
-            return $error->getMessage();
+            return false
         }
     }
 
@@ -57,11 +57,10 @@ class MovieRepository{
         try{
             $query = $this->db->prepare("DELETE FROM movies WHERE id=?");
             $query->execute([$id]);
-            echo "<script>alert('Movie deleted successfully'); document.location='index.php'</script>";
-            return $query->getAllMovies(); 
+            return true
 
         } catch(Exception $error){
-            return $error->getMessage();
+            return false
         }
     }
 }
