@@ -82,7 +82,7 @@ class MovieRepository{
         try{
             $query = $this->db->prepare("UPDATE movies SET title=?, year=?, image=? WHERE id=?");
             $query->execute([$this->title, $this->year, $this->image, $this->id]);
-            echo "<script>alert('MOvie updated successfully!'); document.location='index.php'</script>";
+            echo "<script>alert('Movie updated successfully!'); document.location='index.php'</script>";
 
         } catch(Exception $error){
             return $error->getMessage();
