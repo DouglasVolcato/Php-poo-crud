@@ -6,7 +6,7 @@ class MoviesController{
     private $getMovieByIdUseCase;
     private $updateMovieUseCase;
 
-    public __construct(
+    public function __construct(
         $createMovieUseCase,
         $deleteMovieUseCase, 
         $getAllMoviesUseCase, 
@@ -19,7 +19,7 @@ class MoviesController{
         $this->$updateMovieUseCase;
     }
 
-    public createMovieController(){
+    public function createMovieController(){
         $created = $this->createMovieUseCase->execute($movie);
         if($created){
             echo "<script>alert('Movie added successfully!'); document.location='index.php'</script>";
@@ -27,17 +27,17 @@ class MoviesController{
         }
     }
 
-    public getAllMoviesController(){
+    public function getAllMoviesController(){
         $movies = $this->getAllMoviesUseCase->execute();
         return $movies;
     }
 
-    public getMovieByIdController(){
+    public function getMovieByIdController(){
         $foundMovie = $this->getMovieByIdUseCase->execute($id);
         return $foundMovie;
     }
 
-    public updateMovie(){
+    public function updateMovie(){
         $updated = $this->updateMovieUseCase->execute($movie);
         if($updated){
             echo "<script>alert('Movie updated successfully!'); document.location='index.php'</script>";
@@ -45,7 +45,7 @@ class MoviesController{
         }
     }
 
-    public deleteMovie(){
+    public function deleteMovie(){
         $deleted = $this->deleteMovieUseCase->execute($id);
         if($deleted){
             echo "<script>alert('Movie deleted successfully'); document.location='index.php'</script>";
