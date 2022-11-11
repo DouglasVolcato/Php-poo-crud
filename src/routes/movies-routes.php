@@ -10,21 +10,25 @@ class MoviesRoutes{
 
     router(){
         switch($this->route){
-            case("createMovie"){
+            case "createMovie":
                 $this->controller->createMovieController();
-            }
-            case("getAllMovies"){
+                break;
+
+            case "getAllMovies":
                 $this->controller->getAllMoviesController();
-            }
-            case("getMovieById"){
+                break;
+
+            case "updateMovie":
                 $this->controller->getMovieByIdController();
-            }
-            case("updateMovie"){
+                break;
+
+            case "getAllMovies":
                 $this->controller->updateMovieController();
-            }
-            case("deleteMovie"){
+                break;
+            
+            case "deleteMovie":
                 $this->controller->deleteMovieController();
-            }
+                break;
         }
     }
 }
