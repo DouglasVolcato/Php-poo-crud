@@ -37,7 +37,7 @@ class MoviesController{
         return $foundMovie;
     }
 
-    public function updateMovie(){
+    public function updateMovieController(){
         $updated = $this->updateMovieUseCase->execute($movie);
         if($updated){
             echo "<script>alert('Movie updated successfully!'); document.location='index.php'</script>";
@@ -45,7 +45,7 @@ class MoviesController{
         }
     }
 
-    public function deleteMovie(){
+    public function deleteMovieController(){
         $deleted = $this->deleteMovieUseCase->execute($id);
         if($deleted){
             echo "<script>alert('Movie deleted successfully'); document.location='index.php'</script>";
