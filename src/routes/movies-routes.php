@@ -1,7 +1,7 @@
 <?php
 class MoviesRoutes{
     private $controller;
-    private $royte;
+    private $route;
 
     public function __construct($controller, $route){
         $this->controller = $controller;
@@ -9,7 +9,23 @@ class MoviesRoutes{
     }
 
     router(){
-        //add "page navigation" routes with js
+        switch($this->route){
+            case("createMovie"){
+                $this->controller->createMovieController();
+            }
+            case("getAllMovies"){
+                $this->controller->getAllMoviesController();
+            }
+            case("getMovieById"){
+                $this->controller->getMovieByIdController();
+            }
+            case("updateMovie"){
+                $this->controller->updateMovieController();
+            }
+            case("deleteMovie"){
+                $this->controller->deleteMovieController();
+            }
+        }
     }
 }
 ?>
