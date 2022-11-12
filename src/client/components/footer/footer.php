@@ -1,6 +1,6 @@
 <?php
 function footer($text){
-    echo '
+    return '
     <footer class="footer">'.$text.'</footer>
     ';
 }

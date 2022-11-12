@@ -2,10 +2,13 @@
 require_once("./src/client/components/movieCard/movieCard.php");
 
 function moviesBody($movies){
-    echo '<body class="moviesBody">';
+    $cards = "";
     foreach($movies as $movie){
-        echo movieCard($movie);
+        $cards = $cards." ".movieCard($movie);
     }
-    echo '</body>';
+    
+    return '<body class="moviesBody">'.
+    $cards.
+    '</body>';
 }
 ?>

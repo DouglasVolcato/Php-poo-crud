@@ -1,6 +1,6 @@
 <?php
 function title($text){
-    echo '
+    return '
     <header class="title">'.$text.'</header>
     ';
 }
