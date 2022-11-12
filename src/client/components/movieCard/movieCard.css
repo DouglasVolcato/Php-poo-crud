@@ -12,9 +12,3 @@
 .movieCard:hover{
     border-color: aqua;
 }
-
-.movieCard-image{
-    width: 250px;
-    max-height: 200px;
-    border-radius: 5%;
-}
