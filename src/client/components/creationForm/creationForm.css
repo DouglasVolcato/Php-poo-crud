@@ -22,4 +22,7 @@
 
 .creationForm-button:hover{
     background-color: blue;
+    width: fit-content;
+    padding: 2px;
+    border-radius: 5%;
 }
