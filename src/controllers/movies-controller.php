@@ -1,4 +1,5 @@
 <?php
+
 class MoviesController{
     private $createMovieUseCase;
     private $deleteMovieUseCase;
@@ -12,7 +13,7 @@ class MoviesController{
         $getAllMoviesUseCase, 
         $getMovieByIdUseCase, 
         $updateMovieUseCase){
-        $this->$createMovieUseCase
+        $this->$createMovieUseCase;
         $this->$deleteMovieUseCase;
         $this->$getAllMoviesUseCase;
         $this->$getMovieByIdUseCase;
@@ -20,7 +21,10 @@ class MoviesController{
     }
 
     public function createMovieController(){
-        $created = $this->createMovieUseCase->execute($movie);
+        $title = $_POST['title'];
+        $year = $_POST['year'];
+        $image = $_POST['image'];
+        $created = $this->createMovieUseCase->execute($title, $year, $image);
         if($created){
             echo "<script>alert('Movie added successfully!'); document.location='index.php'</script>";
             return;
@@ -33,12 +37,17 @@ class MoviesController{
     }
 
     public function getMovieByIdController(){
+        $id = $_POST['id'];
         $foundMovie = $this->getMovieByIdUseCase->execute($id);
         return $foundMovie;
     }
 
     public function updateMovieController(){
-        $updated = $this->updateMovieUseCase->execute($movie);
+        $title = $_POST['title'];
+        $year = $_POST['year'];
+        $image = $_POST['image'];
+        $id = $_POST['id'];
+        $updated = $this->updateMovieUseCase->execute($title, $year, $image, $id);
         if($updated){
             echo "<script>alert('Movie updated successfully!'); document.location='index.php'</script>";
             return;
@@ -46,6 +55,7 @@ class MoviesController{
     }
 
     public function deleteMovieController(){
+        $id = $_POST['id'];
         $deleted = $this->deleteMovieUseCase->execute($id);
         if($deleted){
             echo "<script>alert('Movie deleted successfully'); document.location='index.php'</script>";
