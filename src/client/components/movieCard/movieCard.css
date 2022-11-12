@@ -1,0 +1,20 @@
+.movieCard{
+    width: 280px;
+    padding: 5px;
+    margin: 5px;
+    border: solid 5px rgb(3, 156, 3);
+}
+
+.movieCard, .movieCard-text{
+    background-color: rgb(97, 97, 97);
+}
+
+.movieCard:hover{
+    border-color: aqua;
+}
+
+.movieCard-image{
+    width: 250px;
+    max-height: 200px;
+    border-radius: 5%;
+}
