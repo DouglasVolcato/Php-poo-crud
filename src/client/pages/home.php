@@ -1,14 +1,17 @@
 <?php
 require_once("./src/client/components/title/title.php");
-require_once("./src/client/components/creationForm/creationForm.php");
-require_once("./src/client/components/moviesBody/moviesBody.php");
+require_once("./src/client/components/form/form.php");
+require_once("./src/client/components/flexBody/flexBody.php");
 require_once("./src/client/components/footer/footer.php");
-require_once("./src/server/factories/movie-factory.php");
+require_once("./src/client/routes/getAllMovies.php");
+require_once('./src/client/components/head/head.php');
+require_once('./src/client/utils/echoComponents.php');
 
-function homePage(){
-    return title("Movies").
-    creationForm().
-    moviesBody(makeMovieFactory("getAllMovies")).
-    footer("Made by Douglas Volcato");
-}
+    echoComponents([
+        head(),
+        title("Movies"),
+        form(['title', 'year', 'image'], ['text', 'number', 'text'], ['', '', ''], ['Add movie'], ['submit']),
+        flexBody(getAllMovies()),
+        footer("Made by Douglas Volcato"),
+    ]);
 ?>
