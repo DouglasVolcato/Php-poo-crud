@@ -11,7 +11,7 @@ class MovieEntity{
     }
 
     public function validate(){
-        if($this->$title){
+        if($this->title){
             throw new Exception("Movie must have a title.");
         }
     }
