@@ -8,7 +8,7 @@ class MoviesRoutes{
         $this->route = $route;
     }
 
-    router(){
+    public function router(){
         switch($this->route){
             case "createMovie":
                 $this->controller->createMovieController();
