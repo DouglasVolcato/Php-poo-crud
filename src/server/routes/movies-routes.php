@@ -11,23 +11,23 @@ class MoviesRoutes{
     public function router(){
         switch($this->route){
             case "createMovie":
-                $this->controller->createMovieController();
+                return $this->controller->createMovieController();
                 break;
 
             case "getAllMovies":
-                $this->controller->getAllMoviesController();
+                return $this->controller->getAllMoviesController();
                 break;
 
             case "updateMovie":
-                $this->controller->getMovieByIdController();
+                return $this->controller->getMovieByIdController();
                 break;
 
             case "getAllMovies":
-                $this->controller->updateMovieController();
+                return $this->controller->updateMovieController();
                 break;
             
             case "deleteMovie":
-                $this->controller->deleteMovieController();
+                return $this->controller->deleteMovieController();
                 break;
         }
     }

@@ -1,6 +1,6 @@
 <?php
 
-require_once("../connection/database.php");
+require_once("./src/server/database/connection/database-connection.php");
 
 class MovieRepository{
     protected $db;
@@ -23,7 +23,8 @@ class MovieRepository{
     public function getAllMovies(){
         try{
             $query = $this->db->prepare("SELECT * FROM movies");
-            return $query->execute();
+            $query->execute();
+            return $query->fetchAll();
 
         } catch(Exception){
             return [];
@@ -33,7 +34,8 @@ class MovieRepository{
     public function getMovieById(int $id){
         try{
             $query = $this->db->prepare("SELECT * FROM movies WHERE id=?");
-            return $query->execute([$id]);
+            $query->execute([$id]);
+            return $query->fetchAll();
 
         } catch(Exception){
             return null;

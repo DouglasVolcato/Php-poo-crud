@@ -1,5 +1,5 @@
 <?php
-require("../entities/movie-entity.php");
+require_once("./src/server/entities/movie-entity.php");
 
 class CreateMovieUseCase{
     private $repository;

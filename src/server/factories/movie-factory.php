@@ -1,8 +1,8 @@
 <?php
-require("./src/database/repositories/movie-reposiory.php");
-require("./src/services/index.php");
-require("./src/controllers/movies-controller.php");
-require("./src/routes/movies-routes.php");
+require("./src/server/database/repositories/movie-reposiory.php");
+require("./src/server/services/index.php");
+require("./src/server/controllers/movies-controller.php");
+require("./src/server/routes/movies-routes.php");
 
 function makeMovieFactory($route){
     $movieRepository = new MovieRepository();
@@ -20,6 +20,7 @@ function makeMovieFactory($route){
         $getMovieByIdUseCase,
         $updateMovieUseCase);
 
-    return new MoviesRoutes($moviesController, $route);
+    $routes =  new MoviesRoutes($moviesController, $route);
+    return $routes->router();
 }
 ?>

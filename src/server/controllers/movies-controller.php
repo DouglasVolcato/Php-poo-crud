@@ -13,11 +13,11 @@ class MoviesController{
         $getAllMoviesUseCase, 
         $getMovieByIdUseCase, 
         $updateMovieUseCase){
-        $this->$createMovieUseCase;
-        $this->$deleteMovieUseCase;
-        $this->$getAllMoviesUseCase;
-        $this->$getMovieByIdUseCase;
-        $this->$updateMovieUseCase;
+        $this->createMovieUseCase = $createMovieUseCase;
+        $this->deleteMovieUseCase = $deleteMovieUseCase;
+        $this->getAllMoviesUseCase = $getAllMoviesUseCase;
+        $this->getMovieByIdUseCase = $getMovieByIdUseCase;
+        $this->updateMovieUseCase = $updateMovieUseCase;
     }
 
     public function createMovieController(){
