@@ -6,8 +6,8 @@ class UpdateMovieUseCase{
         $this->repository = $repository;
     }
 
-    public function execute($movie){
-        return $this->repository->updateMovie($movie->title, $movie->year, $movie->image, $movie->id);
+    public function execute($title, $year, $image, $id){
+        return $this->repository->updateMovie($title, $year, $image, $id);
     }
 }
 ?>

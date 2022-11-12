@@ -1,16 +1,16 @@
 <?php
+require("../entities/movie-entity.php");
+
 class CreateMovieUseCase{
     private $repository;
-    private $movieEntity;
 
-    public function __construct($repository, $movieEntity){
+    public function __construct($repository){
         $this->repository = $repository;
-        $this->movieEntity = $movieEntity;
     }
 
-    public function execute($movie){
-        $newMovie = new $this->movieEntity($movie);
-        $newMovie.validate();
+    public function execute($title, $year, $image){
+        $newMovie = new MovieEntity($title, $year, $image);
+        $newMovie->validate();
         $movieBody = $newMovie->getMovie();
         return $this->repository->createMovie($movieBody->title, $movieBody->year, $movieBody->image);
     }
