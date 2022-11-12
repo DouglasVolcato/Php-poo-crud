@@ -15,7 +15,7 @@ class MovieRepository{
             $query->execute([$title, $year, $image]);
             return true;
 
-        } catch(Exception $error){
+        } catch(Exception){
             return false;
         }
     }
@@ -23,10 +23,9 @@ class MovieRepository{
     public function getAllMovies(){
         try{
             $query = $this->db->prepare("SELECT * FROM movies");
-            $query->execute();
-            return $query->getAllMovies();
+            return $query->execute();
 
-        } catch(Exception $error){
+        } catch(Exception){
             return [];
         }
     }
@@ -34,10 +33,9 @@ class MovieRepository{
     public function getMovieById(int $id){
         try{
             $query = $this->db->prepare("SELECT * FROM movies WHERE id=?");
-            $query->execute([$id]);
-            return $stm->getAllMovies();
+            return $query->execute([$id]);
 
-        } catch(Exception $error){
+        } catch(Exception){
             return null;
         }
     }
@@ -48,8 +46,8 @@ class MovieRepository{
             $query->execute([$title, $year, $image, $id]);
             return true;
 
-        } catch(Exception $error){
-            return false
+        } catch(Exception){
+            return false;
         }
     }
 
@@ -57,10 +55,10 @@ class MovieRepository{
         try{
             $query = $this->db->prepare("DELETE FROM movies WHERE id=?");
             $query->execute([$id]);
-            return true
+            return true;
 
-        } catch(Exception $error){
-            return false
+        } catch(Exception){
+            return false;
         }
     }
 }
