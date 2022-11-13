@@ -3,6 +3,7 @@
     padding: 5px;
     margin: 5px;
     border: solid 5px rgb(3, 156, 3);
+    cursor: pointer;
 }
 
 .movieCard, .movieCard-text{
