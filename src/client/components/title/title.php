@@ -1,7 +1,7 @@
 <?php
 function title($text){
     return '
-    <header class="title">'.$text.'</header>
+    <header class="title" onClick="homePage()">'.$text.'</header>
     ';
 }
 ?>
