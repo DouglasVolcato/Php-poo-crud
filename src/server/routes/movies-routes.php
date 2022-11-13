@@ -18,11 +18,11 @@ class MoviesRoutes{
                 return $this->controller->getAllMoviesController();
                 break;
 
-            case "updateMovie":
+            case "getMovieById":
                 return $this->controller->getMovieByIdController();
                 break;
 
-            case "getAllMovies":
+            case "updateMovie":
                 return $this->controller->updateMovieController();
                 break;
             
