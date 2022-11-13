@@ -13,7 +13,8 @@ function head(){
         <link rel="stylesheet" href="./src/client/components/footer/footer.css">
         <link rel="stylesheet" href="./src/client/components/button/button.css">
         <link rel="stylesheet" href="./src/client/components/image/image.css">
-        <link rel="stylesheet" href="./src/client/components/modal/modal.css">
+        <script src="./src/client/components/movieCard/movieCard.js"></script>
+        <script src="./src/client/components/title/title.js"></script>
         <title>Movies</title>
     </head>';
 }
