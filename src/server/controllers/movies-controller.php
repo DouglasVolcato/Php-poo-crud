@@ -37,9 +37,9 @@ class MoviesController{
     }
 
     public function getMovieByIdController(){
-        $id = $_POST['id'];
+        $id = $_GET['id'];
         $foundMovie = $this->getMovieByIdUseCase->execute($id);
-        return $foundMovie;
+        return $foundMovie[0];
     }
 
     public function updateMovieController(){
@@ -55,7 +55,7 @@ class MoviesController{
     }
 
     public function deleteMovieController(){
-        $id = $_POST['id'];
+        $id = $_GET['id'];
         $deleted = $this->deleteMovieUseCase->execute($id);
         if($deleted){
             echo "<script>alert('Movie deleted successfully'); document.location='index.php'</script>";
