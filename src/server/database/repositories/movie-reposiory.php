@@ -15,7 +15,7 @@ class MovieRepository{
             $query->execute([$title, $year, $image]);
             return true;
 
-        } catch(Exception){
+        } catch(Exception $exception){
             return false;
         }
     }
@@ -26,7 +26,7 @@ class MovieRepository{
             $query->execute();
             return $query->fetchAll();
 
-        } catch(Exception){
+        } catch(Exception $exception){
             return [];
         }
     }
@@ -37,7 +37,7 @@ class MovieRepository{
             $query->execute([$id]);
             return $query->fetchAll();
 
-        } catch(Exception){
+        } catch(Exception $exception){
             return null;
         }
     }
@@ -48,7 +48,7 @@ class MovieRepository{
             $query->execute([$title, $year, $image, $id]);
             return true;
 
-        } catch(Exception){
+        } catch(Exception $exception){
             return false;
         }
     }
@@ -59,7 +59,7 @@ class MovieRepository{
             $query->execute([$id]);
             return true;
 
-        } catch(Exception){
+        } catch(Exception $exception){
             return false;
         }
     }
